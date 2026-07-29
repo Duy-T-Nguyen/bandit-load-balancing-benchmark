@@ -1,0 +1,281 @@
+{
+    "SW-UCB": {
+        "tau": 10000
+    },
+    "D-UCB": {
+        "gamma": 1.0
+    },
+    "EpsilonGreedy": {
+        "c": 2.0,
+        "d": 1.0
+    },
+    "ThompsonSampling": {
+        "sigma_0": 0.25
+    },
+    "grid_results": {
+        "SW-UCB": {
+            "50": {
+                "objective_mean_regret": 325.3354475988853,
+                "per_scenario": {
+                    "stationary": 333.4257983120528,
+                    "gradual_drift": 329.1517582555668,
+                    "abrupt_drift": 313.42878622903623
+                }
+            },
+            "100": {
+                "objective_mean_regret": 308.3270093716255,
+                "per_scenario": {
+                    "stationary": 318.9475827124266,
+                    "gradual_drift": 306.20348815148833,
+                    "abrupt_drift": 299.82995725096157
+                }
+            },
+            "200": {
+                "objective_mean_regret": 285.0432977681232,
+                "per_scenario": {
+                    "stationary": 298.15129319685036,
+                    "gradual_drift": 277.7558259703467,
+                    "abrupt_drift": 279.2227741371725
+                }
+            },
+            "500": {
+                "objective_mean_regret": 244.30487744650773,
+                "per_scenario": {
+                    "stationary": 260.6642559727064,
+                    "gradual_drift": 231.0546201596574,
+                    "abrupt_drift": 241.19575620715943
+                }
+            },
+            "1000": {
+                "objective_mean_regret": 205.74686084226457,
+                "per_scenario": {
+                    "stationary": 224.1622549192255,
+                    "gradual_drift": 190.06061084592633,
+                    "abrupt_drift": 203.01771676164188
+                }
+            },
+            "2000": {
+                "objective_mean_regret": 162.91029737743884,
+                "per_scenario": {
+                    "stationary": 182.0826243364153,
+                    "gradual_drift": 148.71495424492954,
+                    "abrupt_drift": 157.9333135509717
+                }
+            },
+            "5000": {
+                "objective_mean_regret": 109.32081817430567,
+                "per_scenario": {
+                    "stationary": 126.60436475037478,
+                    "gradual_drift": 94.9479097406099,
+                    "abrupt_drift": 106.41018003193231
+                }
+            },
+            "10000": {
+                "objective_mean_regret": 75.82832646471064,
+                "per_scenario": {
+                    "stationary": 91.40054619261888,
+                    "gradual_drift": 61.87652833324049,
+                    "abrupt_drift": 74.20790486827256
+                }
+            }
+        },
+        "D-UCB": {
+            "0.9": {
+                "objective_mean_regret": 360.2002592419761,
+                "per_scenario": {
+                    "stationary": 366.36089206036144,
+                    "gradual_drift": 372.426132175207,
+                    "abrupt_drift": 341.8137534903599
+                }
+            },
+            "0.95": {
+                "objective_mean_regret": 351.50458682039624,
+                "per_scenario": {
+                    "stationary": 357.8282981296936,
+                    "gradual_drift": 361.87489576527366,
+                    "abrupt_drift": 334.81056656622127
+                }
+            },
+            "0.99": {
+                "objective_mean_regret": 326.1596176364656,
+                "per_scenario": {
+                    "stationary": 334.8038147030222,
+                    "gradual_drift": 329.10514103871674,
+                    "abrupt_drift": 314.5698971676578
+                }
+            },
+            "0.995": {
+                "objective_mean_regret": 309.7195879376234,
+                "per_scenario": {
+                    "stationary": 320.2318605283331,
+                    "gradual_drift": 308.3005868465866,
+                    "abrupt_drift": 300.62631643795044
+                }
+            },
+            "0.999": {
+                "objective_mean_regret": 249.16055601452115,
+                "per_scenario": {
+                    "stationary": 266.67850020735835,
+                    "gradual_drift": 235.8919545940167,
+                    "abrupt_drift": 244.91121324218844
+                }
+            },
+            "0.9995": {
+                "objective_mean_regret": 212.409224930065,
+                "per_scenario": {
+                    "stationary": 234.74255309044864,
+                    "gradual_drift": 193.75317026503583,
+                    "abrupt_drift": 208.73195143471057
+                }
+            },
+            "0.9999": {
+                "objective_mean_regret": 141.39546673125395,
+                "per_scenario": {
+                    "stationary": 165.43842246066285,
+                    "gradual_drift": 117.37761144537566,
+                    "abrupt_drift": 141.37036628772336
+                }
+            },
+            "1.0": {
+                "objective_mean_regret": 108.15142427848339,
+                "per_scenario": {
+                    "stationary": 130.90826780625721,
+                    "gradual_drift": 82.7869146608132,
+                    "abrupt_drift": 110.75909036837974
+                }
+            }
+        },
+        "EpsilonGreedy": {
+            "0.1": {
+                "objective_mean_regret": 143.38455600736862,
+                "per_scenario": {
+                    "stationary": 95.81694791888587,
+                    "gradual_drift": 125.89933312211198,
+                    "abrupt_drift": 208.437386981108
+                }
+            },
+            "0.5": {
+                "objective_mean_regret": 86.65339168258238,
+                "per_scenario": {
+                    "stationary": 18.966451053075154,
+                    "gradual_drift": 58.607472964756646,
+                    "abrupt_drift": 182.38625102991534
+                }
+            },
+            "1.0": {
+                "objective_mean_regret": 83.94408369697517,
+                "per_scenario": {
+                    "stationary": 13.784231580567972,
+                    "gradual_drift": 46.29531078946493,
+                    "abrupt_drift": 191.75270872089263
+                }
+            },
+            "2.0": {
+                "objective_mean_regret": 82.26598067796361,
+                "per_scenario": {
+                    "stationary": 9.748423132183904,
+                    "gradual_drift": 41.640304005465126,
+                    "abrupt_drift": 195.4092148962418
+                }
+            },
+            "5.0": {
+                "objective_mean_regret": 86.92393201641768,
+                "per_scenario": {
+                    "stationary": 15.691382246915788,
+                    "gradual_drift": 41.113050944400605,
+                    "abrupt_drift": 203.96736285793668
+                }
+            },
+            "10.0": {
+                "objective_mean_regret": 95.116918572952,
+                "per_scenario": {
+                    "stationary": 23.597347310254452,
+                    "gradual_drift": 44.69102707548962,
+                    "abrupt_drift": 217.06238133311194
+                }
+            },
+            "20.0": {
+                "objective_mean_regret": 106.59898130055983,
+                "per_scenario": {
+                    "stationary": 38.95048132454751,
+                    "gradual_drift": 53.03558882952545,
+                    "abrupt_drift": 227.81087374760654
+                }
+            },
+            "50.0": {
+                "objective_mean_regret": 134.85074140391828,
+                "per_scenario": {
+                    "stationary": 76.36442906165308,
+                    "gradual_drift": 79.67175869467823,
+                    "abrupt_drift": 248.51603645542355
+                }
+            }
+        },
+        "ThompsonSampling": {
+            "0.05": {
+                "objective_mean_regret": 68.74838465159229,
+                "per_scenario": {
+                    "stationary": 15.250000402247064,
+                    "gradual_drift": 51.12815942918746,
+                    "abrupt_drift": 139.86699412334235
+                }
+            },
+            "0.1": {
+                "objective_mean_regret": 39.263545249103736,
+                "per_scenario": {
+                    "stationary": 8.278684870351276,
+                    "gradual_drift": 30.937400467399215,
+                    "abrupt_drift": 78.57455040956071
+                }
+            },
+            "0.25": {
+                "objective_mean_regret": 32.63881605581788,
+                "per_scenario": {
+                    "stationary": 11.779630891534971,
+                    "gradual_drift": 28.506210220450498,
+                    "abrupt_drift": 57.63060705546816
+                }
+            },
+            "0.5": {
+                "objective_mean_regret": 45.337235385766405,
+                "per_scenario": {
+                    "stationary": 25.944986771561442,
+                    "gradual_drift": 39.062730309509924,
+                    "abrupt_drift": 71.00398907622784
+                }
+            },
+            "1.0": {
+                "objective_mean_regret": 76.1689883814181,
+                "per_scenario": {
+                    "stationary": 59.255086994584346,
+                    "gradual_drift": 61.88948975646409,
+                    "abrupt_drift": 107.36238839320589
+                }
+            },
+            "2.0": {
+                "objective_mean_regret": 133.6832803444935,
+                "per_scenario": {
+                    "stationary": 122.62739766035037,
+                    "gradual_drift": 108.4777938355678,
+                    "abrupt_drift": 169.94464953756236
+                }
+            },
+            "5.0": {
+                "objective_mean_regret": 242.80759388057973,
+                "per_scenario": {
+                    "stationary": 238.6370819465108,
+                    "gradual_drift": 212.86232700171706,
+                    "abrupt_drift": 276.9233726935114
+                }
+            },
+            "10.0": {
+                "objective_mean_regret": 305.79458367576234,
+                "per_scenario": {
+                    "stationary": 306.24035079699604,
+                    "gradual_drift": 293.6926956289557,
+                    "abrupt_drift": 317.4507046013352
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{So sánh Final cumulative dynamic regret giữa cấu hình Mặc định và cấu hình Tuning (Amendment A4: 4 thuật toán, cùng ngân sách 8 điểm lưới).}
+\label{tab:tuning_comparison}
+\begin{tabular}{llccc}
+\toprule
+\textbf{Thuật toán} & \textbf{Cấu hình} & \textbf{Stationary} & \textbf{Gradual Drift} & \textbf{Abrupt Drift} \\ \midrule
+$\epsilon$-greedy & Default ($c=0{.}1$) & 110.68 $\pm$ 187.84 & 343.50 $\pm$ 394.07 & 150.38 $\pm$ 107.68 \\
+$\epsilon$-greedy & Tuned ($c=2$) & 7.40 $\pm$ 6.53 & 59.84 $\pm$ 105.88 & 87.35 $\pm$ 70.16 \\
+\midrule
+TS & Default ($\sigma_0=1$) & 57.12 $\pm$ 19.31 & 42.63 $\pm$ 11.31 & 102.77 $\pm$ 42.85 \\
+TS & Tuned ($\sigma_0=0{.}25$) & 9.16 $\pm$ 4.25 & 23.79 $\pm$ 31.13 & 50.59 $\pm$ 26.23 \\
+\midrule
+SW-UCB & Default ($\tau=200$) & 330.28 $\pm$ 179.01 & 503.63 $\pm$ 238.18 & 243.74 $\pm$ 88.44 \\
+SW-UCB & Tuned ($\tau=10000$) & 93.24 $\pm$ 34.49 & 47.40 $\pm$ 18.55 & 87.99 $\pm$ 32.56 \\
+\midrule
+D-UCB & Default ($\gamma=0{.}99$) & 365.93 $\pm$ 202.29 & 631.85 $\pm$ 289.55 & 269.65 $\pm$ 100.67 \\
+D-UCB & Tuned ($\gamma=1{.}0$) & 139.08 $\pm$ 57.36 & 81.24 $\pm$ 44.47 & 122.10 $\pm$ 41.44 \\
+\bottomrule
+\end{tabular}
+\end{table}

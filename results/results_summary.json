@@ -1,0 +1,723 @@
+{
+    "stationary": {
+        "RoundRobin": {
+            "final_cumulative_regret_mean": 400.08126358044944,
+            "final_cumulative_regret_std": 222.30555777993928,
+            "final_cumulative_reward_mean": 280.70826145205666,
+            "average_latency_ms_mean": 57.596862347215236,
+            "exploration_rate_mean": 0.8999746666666666,
+            "exploration_rate_std": 0.0001475066853475529,
+            "non_optimal_rate_mean": 0.9000000000000004,
+            "non_optimal_rate_std": 3.3306690738754696e-16,
+            "per_instance_final_regret": [
+                350.8177056067378,
+                212.0685043732108,
+                775.4282764520827,
+                502.6401829885333,
+                159.4516484816818
+            ]
+        },
+        "LeastConnections": {
+            "final_cumulative_regret_mean": 357.20604572109323,
+            "final_cumulative_regret_std": 199.55055832613118,
+            "final_cumulative_reward_mean": 323.5834793114131,
+            "average_latency_ms_mean": 51.8658500947989,
+            "exploration_rate_mean": 0.8502253333333333,
+            "exploration_rate_std": 0.013040317923868098,
+            "non_optimal_rate_mean": 0.8502886666666666,
+            "non_optimal_rate_std": 0.01309470395066477,
+            "per_instance_final_regret": [
+                308.15085138778335,
+                197.44287831682394,
+                693.0184961990037,
+                452.3095854525205,
+                135.10841724933306
+            ]
+        },
+        "EpsilonGreedy": {
+            "final_cumulative_regret_mean": 7.402393812773932,
+            "final_cumulative_regret_std": 6.526453138203993,
+            "final_cumulative_reward_mean": 673.387131219732,
+            "average_latency_ms_mean": 21.583066189118597,
+            "exploration_rate_mean": 0.056096000000000014,
+            "exploration_rate_std": 0.1323306081398656,
+            "non_optimal_rate_mean": 0.07680266666666667,
+            "non_optimal_rate_std": 0.2072254955185025,
+            "per_instance_final_regret": [
+                7.727583234569959,
+                3.5031100512031954,
+                11.961476175213807,
+                8.59913985925204,
+                5.22065974363065
+            ]
+        },
+        "EpsilonGreedy-Default": {
+            "final_cumulative_regret_mean": 110.67887896380716,
+            "final_cumulative_regret_std": 187.84327142450104,
+            "final_cumulative_reward_mean": 570.1106460686989,
+            "average_latency_ms_mean": 26.687421681223793,
+            "exploration_rate_mean": 0.08327133333333334,
+            "exploration_rate_std": 0.24297509072239393,
+            "non_optimal_rate_mean": 0.44247733333333333,
+            "non_optimal_rate_std": 0.47940154347501024,
+            "per_instance_final_regret": [
+                83.60320217756728,
+                83.13718063746933,
+                267.82943456104937,
+                106.73851177254545,
+                12.086065670404514
+            ]
+        },
+        "UCB": {
+            "final_cumulative_regret_mean": 93.2428240460077,
+            "final_cumulative_regret_std": 34.49111187530107,
+            "final_cumulative_reward_mean": 587.5467009864985,
+            "average_latency_ms_mean": 28.99829834148167,
+            "exploration_rate_mean": 0.3342286666666666,
+            "exploration_rate_std": 0.1736180817528968,
+            "non_optimal_rate_mean": 0.33553066666666664,
+            "non_optimal_rate_std": 0.1761003558378637,
+            "per_instance_final_regret": [
+                95.6954495039388,
+                64.29404054364495,
+                147.807600856774,
+                107.57012311344938,
+                50.84690621223119
+            ]
+        },
+        "ThompsonSampling": {
+            "final_cumulative_regret_mean": 9.155638082443618,
+            "final_cumulative_regret_std": 4.247946084460454,
+            "final_cumulative_reward_mean": 671.633886950062,
+            "average_latency_ms_mean": 21.71818874603802,
+            "exploration_rate_mean": 0.08831000000000001,
+            "exploration_rate_std": 0.1436884638143694,
+            "non_optimal_rate_mean": 0.09077333333333333,
+            "non_optimal_rate_std": 0.15195068176513354,
+            "per_instance_final_regret": [
+                9.760406221611138,
+                5.845854272421573,
+                11.430650398930684,
+                10.449376494280362,
+                8.29190302497434
+            ]
+        },
+        "ThompsonSampling-Default": {
+            "final_cumulative_regret_mean": 57.120310702872665,
+            "final_cumulative_regret_std": 19.31427092559235,
+            "final_cumulative_reward_mean": 623.6692143296331,
+            "average_latency_ms_mean": 25.909809632727836,
+            "exploration_rate_mean": 0.239128,
+            "exploration_rate_std": 0.17710242803530393,
+            "non_optimal_rate_mean": 0.2404006666666666,
+            "non_optimal_rate_std": 0.17968928014646718,
+            "per_instance_final_regret": [
+                59.19674921273759,
+                38.99471370761977,
+                86.78777789808841,
+                65.7000385449907,
+                34.92227415092692
+            ]
+        },
+        "SW-UCB": {
+            "final_cumulative_regret_mean": 93.2428240460077,
+            "final_cumulative_regret_std": 34.49111187530107,
+            "final_cumulative_reward_mean": 587.5467009864985,
+            "average_latency_ms_mean": 28.99829834148167,
+            "exploration_rate_mean": 0.3342286666666666,
+            "exploration_rate_std": 0.1736180817528968,
+            "non_optimal_rate_mean": 0.33553066666666664,
+            "non_optimal_rate_std": 0.1761003558378637,
+            "per_instance_final_regret": [
+                95.6954495039388,
+                64.29404054364495,
+                147.807600856774,
+                107.57012311344938,
+                50.84690621223119
+            ]
+        },
+        "SW-UCB-Default": {
+            "final_cumulative_regret_mean": 330.2817739464985,
+            "final_cumulative_regret_std": 179.00759882876133,
+            "final_cumulative_reward_mean": 350.5077510860074,
+            "average_latency_ms_mean": 50.16777360856413,
+            "exploration_rate_mean": 0.7964986666666668,
+            "exploration_rate_std": 0.035301559902581575,
+            "non_optimal_rate_mean": 0.7968433333333333,
+            "non_optimal_rate_std": 0.03577262159187603,
+            "per_instance_final_regret": [
+                289.50011308066337,
+                186.448793248259,
+                629.0017801822725,
+                418.23136930636355,
+                128.2268139149339
+            ]
+        },
+        "D-UCB": {
+            "final_cumulative_regret_mean": 139.07773268218975,
+            "final_cumulative_regret_std": 57.36397372865356,
+            "final_cumulative_reward_mean": 541.7117923503165,
+            "average_latency_ms_mean": 33.0036017804319,
+            "exploration_rate_mean": 0.43848533333333334,
+            "exploration_rate_std": 0.15382041883818792,
+            "non_optimal_rate_mean": 0.43917266666666666,
+            "non_optimal_rate_std": 0.15504379677870236,
+            "per_instance_final_regret": [
+                136.7296082929496,
+                94.1489391675687,
+                231.07039350348776,
+                165.99956064477053,
+                67.44016180217177
+            ]
+        },
+        "D-UCB-Default": {
+            "final_cumulative_regret_mean": 365.93032491989743,
+            "final_cumulative_regret_std": 202.28955201318766,
+            "final_cumulative_reward_mean": 314.85920011260873,
+            "average_latency_ms_mean": 53.743689298137525,
+            "exploration_rate_mean": 0.8519933333333333,
+            "exploration_rate_std": 0.015171704657757551,
+            "non_optimal_rate_mean": 0.852168,
+            "non_optimal_rate_std": 0.01542288913703698,
+            "per_instance_final_regret": [
+                319.28899489840103,
+                199.85535555689367,
+                705.9069383468388,
+                462.201262737808,
+                142.3990730595453
+            ]
+        }
+    },
+    "gradual_drift": {
+        "RoundRobin": {
+            "final_cumulative_regret_mean": 746.413268937599,
+            "final_cumulative_regret_std": 331.81349371617284,
+            "final_cumulative_reward_mean": 324.42887389384634,
+            "average_latency_ms_mean": 58.49687152030813,
+            "exploration_rate_mean": 0.9000233333333335,
+            "exploration_rate_std": 0.0001819951159295737,
+            "non_optimal_rate_mean": 0.9000000000000004,
+            "non_optimal_rate_std": 6.324555320336062e-05,
+            "per_instance_final_regret": [
+                703.7533699159842,
+                336.4700865061574,
+                1343.7045833710574,
+                755.8352765049533,
+                592.3030283898426
+            ]
+        },
+        "LeastConnections": {
+            "final_cumulative_regret_mean": 657.7435598344073,
+            "final_cumulative_regret_std": 299.47845213110804,
+            "final_cumulative_reward_mean": 413.09858299703853,
+            "average_latency_ms_mean": 51.61868651513883,
+            "exploration_rate_mean": 0.8412086666666666,
+            "exploration_rate_std": 0.011278663849154397,
+            "non_optimal_rate_mean": 0.8403433333333333,
+            "non_optimal_rate_std": 0.010609576910613466,
+            "per_instance_final_regret": [
+                612.5237056083115,
+                301.86144693114386,
+                1206.9797784324228,
+                642.8411811459097,
+                524.5116870542485
+            ]
+        },
+        "EpsilonGreedy": {
+            "final_cumulative_regret_mean": 59.843355131902804,
+            "final_cumulative_regret_std": 105.88246586984548,
+            "final_cumulative_reward_mean": 1010.9987876995424,
+            "average_latency_ms_mean": 19.48101652379176,
+            "exploration_rate_mean": 0.053068000000000004,
+            "exploration_rate_std": 0.09394337182224904,
+            "non_optimal_rate_mean": 0.24270400000000006,
+            "non_optimal_rate_std": 0.17183430813043904,
+            "per_instance_final_regret": [
+                26.79874085412128,
+                93.15966454882668,
+                36.05523539863104,
+                125.89569081894734,
+                17.3074440389876
+            ]
+        },
+        "EpsilonGreedy-Default": {
+            "final_cumulative_regret_mean": 343.50095525093326,
+            "final_cumulative_regret_std": 394.06988343205325,
+            "final_cumulative_reward_mean": 727.3411875805119,
+            "average_latency_ms_mean": 29.042227335484366,
+            "exploration_rate_mean": 0.08470666666666667,
+            "exploration_rate_std": 0.18253497698310378,
+            "non_optimal_rate_mean": 0.5649439999999999,
+            "non_optimal_rate_std": 0.3581517480026215,
+            "per_instance_final_regret": [
+                200.79101189860313,
+                138.63612565087462,
+                592.9428418524766,
+                399.0088596634806,
+                386.12593718923074
+            ]
+        },
+        "UCB": {
+            "final_cumulative_regret_mean": 47.39994880639856,
+            "final_cumulative_regret_std": 18.547220211814007,
+            "final_cumulative_reward_mean": 1023.4421940250468,
+            "average_latency_ms_mean": 22.508077210759346,
+            "exploration_rate_mean": 0.24003133333333332,
+            "exploration_rate_std": 0.048871966247419275,
+            "non_optimal_rate_mean": 0.23151599999999997,
+            "non_optimal_rate_std": 0.04547227005549646,
+            "per_instance_final_regret": [
+                38.95000927144118,
+                41.73611074228567,
+                79.94147784658081,
+                43.093465678829126,
+                33.278680492856
+            ]
+        },
+        "ThompsonSampling": {
+            "final_cumulative_regret_mean": 23.79443923764685,
+            "final_cumulative_regret_std": 31.13122951711251,
+            "final_cumulative_reward_mean": 1047.0477035937988,
+            "average_latency_ms_mean": 18.616210444728996,
+            "exploration_rate_mean": 0.059410000000000004,
+            "exploration_rate_std": 0.03703411175299515,
+            "non_optimal_rate_mean": 0.17002866666666663,
+            "non_optimal_rate_std": 0.10761611114615795,
+            "per_instance_final_regret": [
+                8.76985703625434,
+                74.37041161031924,
+                15.551962960034153,
+                15.115927651870885,
+                5.164036929755669
+            ]
+        },
+        "ThompsonSampling-Default": {
+            "final_cumulative_regret_mean": 42.6347157616578,
+            "final_cumulative_regret_std": 11.305544816984815,
+            "final_cumulative_reward_mean": 1028.2074270697879,
+            "average_latency_ms_mean": 21.714773871868882,
+            "exploration_rate_mean": 0.20407666666666668,
+            "exploration_rate_std": 0.03464443662247792,
+            "non_optimal_rate_mean": 0.2536086666666666,
+            "non_optimal_rate_std": 0.07413320707723062,
+            "per_instance_final_regret": [
+                38.217802919809856,
+                53.30521587641286,
+                43.93519224345257,
+                48.12898607793041,
+                29.5863816906834
+            ]
+        },
+        "SW-UCB": {
+            "final_cumulative_regret_mean": 47.39994880639856,
+            "final_cumulative_regret_std": 18.547220211814007,
+            "final_cumulative_reward_mean": 1023.4421940250468,
+            "average_latency_ms_mean": 22.508077210759346,
+            "exploration_rate_mean": 0.24003133333333332,
+            "exploration_rate_std": 0.048871966247419275,
+            "non_optimal_rate_mean": 0.23151599999999997,
+            "non_optimal_rate_std": 0.04547227005549646,
+            "per_instance_final_regret": [
+                38.95000927144118,
+                41.73611074228567,
+                79.94147784658081,
+                43.093465678829126,
+                33.278680492856
+            ]
+        },
+        "SW-UCB-Default": {
+            "final_cumulative_regret_mean": 503.62864806258864,
+            "final_cumulative_regret_std": 238.17507882932463,
+            "final_cumulative_reward_mean": 567.2134947688562,
+            "average_latency_ms_mean": 45.82350289758446,
+            "exploration_rate_mean": 0.7237433333333334,
+            "exploration_rate_std": 0.03693997007157544,
+            "non_optimal_rate_mean": 0.7198833333333332,
+            "non_optimal_rate_std": 0.03458025528470771,
+            "per_instance_final_regret": [
+                459.5514785915714,
+                247.3917193933815,
+                951.5302717548976,
+                476.60247431034406,
+                383.0672962627485
+            ]
+        },
+        "D-UCB": {
+            "final_cumulative_regret_mean": 81.24328762922809,
+            "final_cumulative_regret_std": 44.47293739541215,
+            "final_cumulative_reward_mean": 989.5988552022167,
+            "average_latency_ms_mean": 25.095397500932652,
+            "exploration_rate_mean": 0.31113999999999997,
+            "exploration_rate_std": 0.05716793040391323,
+            "non_optimal_rate_mean": 0.3012413333333333,
+            "non_optimal_rate_std": 0.04914270266162504,
+            "per_instance_final_regret": [
+                61.88695231371978,
+                60.02382511776533,
+                168.8024924678672,
+                62.119088888686534,
+                53.384079358101495
+            ]
+        },
+        "D-UCB-Default": {
+            "final_cumulative_regret_mean": 631.8490118077934,
+            "final_cumulative_regret_std": 289.5520393146344,
+            "final_cumulative_reward_mean": 438.9931310236516,
+            "average_latency_ms_mean": 52.1777352267875,
+            "exploration_rate_mean": 0.821006,
+            "exploration_rate_std": 0.016535836759394226,
+            "non_optimal_rate_mean": 0.81906,
+            "non_optimal_rate_std": 0.015156974192320398,
+            "per_instance_final_regret": [
+                590.7592691160003,
+                293.1545226537122,
+                1165.1331613793677,
+                612.2703696498016,
+                497.92773624008527
+            ]
+        }
+    },
+    "abrupt_drift": {
+        "RoundRobin": {
+            "final_cumulative_regret_mean": 296.48360863208865,
+            "final_cumulative_regret_std": 112.55739457787413,
+            "final_cumulative_reward_mean": 271.5331781343587,
+            "average_latency_ms_mean": 57.21712328635088,
+            "exploration_rate_mean": 0.8999706666666666,
+            "exploration_rate_std": 0.00016352233962231046,
+            "non_optimal_rate_mean": 0.9000000000000004,
+            "non_optimal_rate_std": 3.3306690738754696e-16,
+            "per_instance_final_regret": [
+                226.1317029650616,
+                214.73057353478228,
+                458.9987389646854,
+                403.60552972981753,
+                178.95149796609638
+            ],
+            "legacy_tau_adapt_mean": 1.9466666666666668,
+            "legacy_tau_adapt_std": 11.35945225596532,
+            "opt_rate_100_mean": 0.09999999999999998,
+            "opt_rate_100_std": 2.7755575615628914e-17,
+            "opt_rate_500_mean": 0.09999999999999998,
+            "opt_rate_500_std": 2.7755575615628914e-17,
+            "opt_rate_1000_mean": 0.09999999999999998,
+            "opt_rate_1000_std": 2.7755575615628914e-17,
+            "t50_median": 4900.0,
+            "t50_iqr": [
+                4900.0,
+                4900.0
+            ],
+            "t50_censored_pct": 100.0
+        },
+        "LeastConnections": {
+            "final_cumulative_regret_mean": 263.58112916932174,
+            "final_cumulative_regret_std": 98.3953483675199,
+            "final_cumulative_reward_mean": 304.4356575971254,
+            "average_latency_ms_mean": 52.14062419262268,
+            "exploration_rate_mean": 0.8727933333333334,
+            "exploration_rate_std": 0.00591687605263303,
+            "non_optimal_rate_mean": 0.8561366666666667,
+            "non_optimal_rate_std": 0.007844653522552085,
+            "per_instance_final_regret": [
+                203.04115068289173,
+                196.5246993379955,
+                402.89517654628696,
+                359.5729579688887,
+                155.87166131054616
+            ],
+            "legacy_tau_adapt_mean": 3.4133333333333336,
+            "legacy_tau_adapt_std": 12.131054731097741,
+            "opt_rate_100_mean": 0.14353333333333335,
+            "opt_rate_100_std": 0.027058865870952947,
+            "opt_rate_500_mean": 0.1450533333333333,
+            "opt_rate_500_std": 0.012751358968970936,
+            "opt_rate_1000_mean": 0.14456,
+            "opt_rate_1000_std": 0.01013671873273924,
+            "t50_median": 4900.0,
+            "t50_iqr": [
+                4900.0,
+                4900.0
+            ],
+            "t50_censored_pct": 100.0
+        },
+        "EpsilonGreedy": {
+            "final_cumulative_regret_mean": 87.35419656293304,
+            "final_cumulative_regret_std": 70.15633753670909,
+            "final_cumulative_reward_mean": 480.6625902035142,
+            "average_latency_ms_mean": 31.201888270034935,
+            "exploration_rate_mean": 0.14350466666666667,
+            "exploration_rate_std": 0.17790744610111803,
+            "non_optimal_rate_mean": 0.3777986666666666,
+            "non_optimal_rate_std": 0.17943934350699745,
+            "per_instance_final_regret": [
+                48.344499690983326,
+                72.75620755502882,
+                108.61822900387283,
+                184.06285733120902,
+                22.989189233571683
+            ],
+            "legacy_tau_adapt_mean": 1344.38,
+            "legacy_tau_adapt_std": 1080.9794550622444,
+            "opt_rate_100_mean": 0.0378,
+            "opt_rate_100_std": 0.13545414968418895,
+            "opt_rate_500_mean": 0.10502666666666667,
+            "opt_rate_500_std": 0.25489498351717754,
+            "opt_rate_1000_mean": 0.14857333333333334,
+            "opt_rate_1000_std": 0.29396980222842994,
+            "t50_median": 4900.0,
+            "t50_iqr": [
+                1073.25,
+                4900.0
+            ],
+            "t50_censored_pct": 51.33333333333333
+        },
+        "EpsilonGreedy-Default": {
+            "final_cumulative_regret_mean": 150.37657036223607,
+            "final_cumulative_regret_std": 107.68063382508923,
+            "final_cumulative_reward_mean": 417.64021640421123,
+            "average_latency_ms_mean": 37.91117055442524,
+            "exploration_rate_mean": 0.14611466666666664,
+            "exploration_rate_std": 0.23012818902709178,
+            "non_optimal_rate_mean": 0.6203413333333332,
+            "non_optimal_rate_std": 0.2726042995959936,
+            "per_instance_final_regret": [
+                76.39425833262096,
+                144.1231511320244,
+                220.18369410573607,
+                213.42294478904964,
+                97.75880345174899
+            ],
+            "legacy_tau_adapt_mean": 706.84,
+            "legacy_tau_adapt_std": 1140.4411256468554,
+            "opt_rate_100_mean": 0.12420000000000002,
+            "opt_rate_100_std": 0.32546432472187586,
+            "opt_rate_500_mean": 0.14288,
+            "opt_rate_500_std": 0.33862604585786565,
+            "opt_rate_1000_mean": 0.15955999999999998,
+            "opt_rate_1000_std": 0.3478228568299291,
+            "t50_median": 4900.0,
+            "t50_iqr": [
+                1998.0,
+                4900.0
+            ],
+            "t50_censored_pct": 69.33333333333334
+        },
+        "UCB": {
+            "final_cumulative_regret_mean": 87.99044004613874,
+            "final_cumulative_regret_std": 32.55791398314756,
+            "final_cumulative_reward_mean": 480.0263467203085,
+            "average_latency_ms_mean": 33.32263156136222,
+            "exploration_rate_mean": 0.46223399999999987,
+            "exploration_rate_std": 0.14696789755135872,
+            "non_optimal_rate_mean": 0.41151,
+            "non_optimal_rate_std": 0.14038590135765058,
+            "per_instance_final_regret": [
+                108.20775472410327,
+                51.452952727563094,
+                136.6414321955266,
+                86.48087002277579,
+                57.16919056072499
+            ],
+            "legacy_tau_adapt_mean": 314.08666666666664,
+            "legacy_tau_adapt_std": 626.8509013225465,
+            "opt_rate_100_mean": 0.5434666666666668,
+            "opt_rate_100_std": 0.35192989200817953,
+            "opt_rate_500_mean": 0.6322533333333333,
+            "opt_rate_500_std": 0.3759802332865682,
+            "opt_rate_1000_mean": 0.6336733333333333,
+            "opt_rate_1000_std": 0.34187538658925937,
+            "t50_median": 0.0,
+            "t50_iqr": [
+                0.0,
+                1013.75
+            ],
+            "t50_censored_pct": 0.0
+        },
+        "ThompsonSampling": {
+            "final_cumulative_regret_mean": 50.593505073821404,
+            "final_cumulative_regret_std": 26.233624420963732,
+            "final_cumulative_reward_mean": 517.4232816926262,
+            "average_latency_ms_mean": 28.776539488529277,
+            "exploration_rate_mean": 0.15123133333333333,
+            "exploration_rate_std": 0.13976066167400453,
+            "non_optimal_rate_mean": 0.262184,
+            "non_optimal_rate_std": 0.14986718790538064,
+            "per_instance_final_regret": [
+                52.44098895917259,
+                34.86224218716571,
+                87.84202346473141,
+                60.55112608512355,
+                17.271144672913685
+            ],
+            "legacy_tau_adapt_mean": 1366.5266666666666,
+            "legacy_tau_adapt_std": 818.8183412427665,
+            "opt_rate_100_mean": 0.01853333333333334,
+            "opt_rate_100_std": 0.03992303706995359,
+            "opt_rate_500_mean": 0.07537333333333333,
+            "opt_rate_500_std": 0.14674897145200788,
+            "opt_rate_1000_mean": 0.1860733333333333,
+            "opt_rate_1000_std": 0.25760227992434814,
+            "t50_median": 1288.0,
+            "t50_iqr": [
+                591.25,
+                2608.0
+            ],
+            "t50_censored_pct": 16.666666666666664
+        },
+        "ThompsonSampling-Default": {
+            "final_cumulative_regret_mean": 102.77318089956994,
+            "final_cumulative_regret_std": 42.85429678387297,
+            "final_cumulative_reward_mean": 465.2436058668775,
+            "average_latency_ms_mean": 34.48434854760948,
+            "exploration_rate_mean": 0.31623666666666667,
+            "exploration_rate_std": 0.1032311028173626,
+            "non_optimal_rate_mean": 0.41700133333333333,
+            "non_optimal_rate_std": 0.09915861165268948,
+            "per_instance_final_regret": [
+                102.35965155002415,
+                66.7782720848964,
+                170.18792488501697,
+                123.54023709583295,
+                50.999818882079154
+            ],
+            "legacy_tau_adapt_mean": 2301.766666666667,
+            "legacy_tau_adapt_std": 794.7900386615042,
+            "opt_rate_100_mean": 0.05446666666666668,
+            "opt_rate_100_std": 0.0640784588523233,
+            "opt_rate_500_mean": 0.0832,
+            "opt_rate_500_std": 0.09527560023426775,
+            "opt_rate_1000_mean": 0.12230666666666669,
+            "opt_rate_1000_std": 0.13632857106596874,
+            "t50_median": 1971.0,
+            "t50_iqr": [
+                1365.25,
+                2988.25
+            ],
+            "t50_censored_pct": 6.666666666666667
+        },
+        "SW-UCB": {
+            "final_cumulative_regret_mean": 87.99044004613874,
+            "final_cumulative_regret_std": 32.55791398314756,
+            "final_cumulative_reward_mean": 480.0263467203085,
+            "average_latency_ms_mean": 33.32263156136222,
+            "exploration_rate_mean": 0.46223399999999987,
+            "exploration_rate_std": 0.14696789755135872,
+            "non_optimal_rate_mean": 0.41151,
+            "non_optimal_rate_std": 0.14038590135765058,
+            "per_instance_final_regret": [
+                108.20775472410327,
+                51.452952727563094,
+                136.6414321955266,
+                86.48087002277579,
+                57.16919056072499
+            ],
+            "legacy_tau_adapt_mean": 314.08666666666664,
+            "legacy_tau_adapt_std": 626.8509013225465,
+            "opt_rate_100_mean": 0.5434666666666668,
+            "opt_rate_100_std": 0.35192989200817953,
+            "opt_rate_500_mean": 0.6322533333333333,
+            "opt_rate_500_std": 0.3759802332865682,
+            "opt_rate_1000_mean": 0.6336733333333333,
+            "opt_rate_1000_std": 0.34187538658925937,
+            "t50_median": 0.0,
+            "t50_iqr": [
+                0.0,
+                1013.75
+            ],
+            "t50_censored_pct": 0.0
+        },
+        "SW-UCB-Default": {
+            "final_cumulative_regret_mean": 243.74054038355268,
+            "final_cumulative_regret_std": 88.44011016704385,
+            "final_cumulative_reward_mean": 324.27624638289495,
+            "average_latency_ms_mean": 50.317743860941974,
+            "exploration_rate_mean": 0.8435153333333332,
+            "exploration_rate_std": 0.015031813980872553,
+            "non_optimal_rate_mean": 0.8103306666666666,
+            "non_optimal_rate_std": 0.023313363683137245,
+            "per_instance_final_regret": [
+                194.65734379412936,
+                177.87766006128,
+                370.1647496016078,
+                328.2435904254001,
+                147.75935803534554
+            ],
+            "legacy_tau_adapt_mean": 4.54,
+            "legacy_tau_adapt_std": 16.65157850375353,
+            "opt_rate_100_mean": 0.21966666666666665,
+            "opt_rate_100_std": 0.06990867057970866,
+            "opt_rate_500_mean": 0.20188,
+            "opt_rate_500_std": 0.033699242325805095,
+            "opt_rate_1000_mean": 0.1969,
+            "opt_rate_1000_std": 0.028099288247213663,
+            "t50_median": 4900.0,
+            "t50_iqr": [
+                4900.0,
+                4900.0
+            ],
+            "t50_censored_pct": 100.0
+        },
+        "D-UCB": {
+            "final_cumulative_regret_mean": 122.1006679041065,
+            "final_cumulative_regret_std": 41.43534523355281,
+            "final_cumulative_reward_mean": 445.9161188623408,
+            "average_latency_ms_mean": 36.98200426639764,
+            "exploration_rate_mean": 0.5775486666666668,
+            "exploration_rate_std": 0.1113116506251205,
+            "non_optimal_rate_mean": 0.5189779999999999,
+            "non_optimal_rate_std": 0.11079543123552825,
+            "per_instance_final_regret": [
+                130.6406228959614,
+                76.32616806982419,
+                186.6545509228544,
+                137.68471564981303,
+                79.19728198207972
+            ],
+            "legacy_tau_adapt_mean": 196.19333333333333,
+            "legacy_tau_adapt_std": 482.6929831223524,
+            "opt_rate_100_mean": 0.509,
+            "opt_rate_100_std": 0.3446384579043184,
+            "opt_rate_500_mean": 0.5627733333333335,
+            "opt_rate_500_std": 0.3604545860746152,
+            "opt_rate_1000_mean": 0.5412199999999999,
+            "opt_rate_1000_std": 0.3282397268257861,
+            "t50_median": 0.0,
+            "t50_iqr": [
+                0.0,
+                1672.5
+            ],
+            "t50_censored_pct": 0.0
+        },
+        "D-UCB-Default": {
+            "final_cumulative_regret_mean": 269.6528163923407,
+            "final_cumulative_regret_std": 100.67022032676937,
+            "final_cumulative_reward_mean": 298.36397037410677,
+            "average_latency_ms_mean": 53.60820167839378,
+            "exploration_rate_mean": 0.8726919999999999,
+            "exploration_rate_std": 0.004335504891782116,
+            "non_optimal_rate_mean": 0.8578066666666666,
+            "non_optimal_rate_std": 0.00994107081198444,
+            "per_instance_final_regret": [
+                210.02520569035642,
+                195.70408430113795,
+                414.3269970131783,
+                365.68529083628954,
+                162.52250412074144
+            ],
+            "legacy_tau_adapt_mean": 3.2466666666666666,
+            "legacy_tau_adapt_std": 12.22725734669154,
+            "opt_rate_100_mean": 0.14833333333333334,
+            "opt_rate_100_std": 0.02098941532190822,
+            "opt_rate_500_mean": 0.14692,
+            "opt_rate_500_std": 0.014160282483058027,
+            "opt_rate_1000_mean": 0.14568,
+            "opt_rate_1000_std": 0.012467194284735172,
+            "t50_median": 4900.0,
+            "t50_iqr": [
+                4900.0,
+                4900.0
+            ],
+            "t50_censored_pct": 100.0
+        }
+    }
+}
