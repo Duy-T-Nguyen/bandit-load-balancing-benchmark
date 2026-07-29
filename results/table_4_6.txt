@@ -1,11 +1,11 @@
 \begin{table}[htbp]
 \centering
 \small
-\caption{So sánh Final cumulative dynamic regret giữa cấu hình Mặc định và cấu hình Tuning (Amendment A4: 4 thuật toán, cùng ngân sách 8 điểm lưới).}
+\caption{Final cumulative dynamic regret, default configuration versus tuned configuration (Amendment A4: 4 algorithms, an equal budget of 8 grid points each).}
 \label{tab:tuning_comparison}
 \begin{tabular}{llccc}
 \toprule
-\textbf{Thuật toán} & \textbf{Cấu hình} & \textbf{Stationary} & \textbf{Gradual Drift} & \textbf{Abrupt Drift} \\ \midrule
+\textbf{Algorithm} & \textbf{Configuration} & \textbf{Stationary} & \textbf{Gradual Drift} & \textbf{Abrupt Drift} \\ \midrule
 $\epsilon$-greedy & Default ($c=0{.}1$) & 110.68 $\pm$ 187.84 & 343.50 $\pm$ 394.07 & 150.38 $\pm$ 107.68 \\
 $\epsilon$-greedy & Tuned ($c=2$) & 7.40 $\pm$ 6.53 & 59.84 $\pm$ 105.88 & 87.35 $\pm$ 70.16 \\
 \midrule

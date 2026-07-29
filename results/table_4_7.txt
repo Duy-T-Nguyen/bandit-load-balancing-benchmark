@@ -2,12 +2,12 @@
 \centering
 \small
 \setlength{\tabcolsep}{4pt}
-\caption{Kết quả Grid Search (Amendment A4): regret trung bình trên 3 kịch bản chính $\times$ 5 tuning instances $\times$ 30 runs. Điểm in đậm là tối ưu. Hai điểm cuối lưới của SW-UCB ($\tau = T$) và D-UCB ($\gamma = 1$) là điểm neo suy biến về UCB.}
+\caption{Grid search results (Amendment A4): mean regret over the 3 main scenarios $\times$ 5 tuning instances $\times$ 30 runs. Bold marks the optimum. The final grid points of SW-UCB ($\tau = T$) and D-UCB ($\gamma = 1$) are the anchors that degenerate to UCB.}
 \label{tab:hyperparam_sensitivity}
 \begin{tabular}{cc|cc|cc|cc}
 \toprule
 \multicolumn{2}{c|}{\textbf{$\epsilon$-greedy ($c$)}} & \multicolumn{2}{c|}{\textbf{TS ($\sigma_0$)}} & \multicolumn{2}{c|}{\textbf{SW-UCB ($\tau$)}} & \multicolumn{2}{c}{\textbf{D-UCB ($\gamma$)}} \\
-Giá trị & Regret & Giá trị & Regret & Giá trị & Regret & Giá trị & Regret \\ \midrule
+Value & Regret & Value & Regret & Value & Regret & Value & Regret \\ \midrule
 0.1 & 143.4 & 0.05 & 68.7 & 50 & 325.3 & 0.9 & 360.2 \\
 0.5 & 86.7 & 0.1 & 39.3 & 100 & 308.3 & 0.95 & 351.5 \\
 1.0 & 83.9 & \textbf{0.25} & \textbf{32.6} & 200 & 285.0 & 0.99 & 326.2 \\

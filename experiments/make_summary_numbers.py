@@ -39,8 +39,8 @@ def paired_test(a, b):
 
 def fmt_test(name_a, name_b, res):
     ci = res['boot_ci']
-    sign = "THẮNG NHẤT QUÁN 5/5 instance" if res['consistent_sign'] else "KHÔNG nhất quán giữa các instance"
-    return (f"    {name_a} vs {name_b}: hiệu regret trung bình = {res['mean_diff']:+.1f}, "
+    sign = "CONSISTENT WIN on 5/5 instances" if res['consistent_sign'] else "NOT consistent across instances"
+    return (f"    {name_a} vs {name_b}: mean regret difference = {res['mean_diff']:+.1f}, "
             f"Wilcoxon p={res['wilcoxon_p']:.3f}, t-test p={res['ttest_p']:.3f}, "
             f"CI95=[{ci[0]:.1f}; {ci[1]:.1f}] — {sign}")
 
@@ -57,18 +57,18 @@ def main():
         return S[scenario][method]['final_cumulative_regret_mean']
 
     print("=" * 78)
-    print("DIGEST — mọi con số tổng kết cho báo cáo (Amendment A8)")
+    print("DIGEST - every summary figure reported in the paper (Amendment A8)")
     print("=" * 78)
 
-    # ── 0. Sanity check bắt buộc (A1) ──────────────────────────────────────
+    # ── 0. Mandatory sanity check (A1) ──────────────────────────────────────
     rr = S['abrupt_drift']['RoundRobin']
-    print("\n[0] SANITY CHECK metric mới trên Round Robin (abrupt):")
+    print("\n[0] SANITY CHECK: new metric on Round Robin (abrupt):")
     print(f"    opt_rate@1000 = {rr.get('opt_rate_1000_mean', float('nan')):.4f} "
-          f"(kỳ vọng ~0.10) | t50 censored = {rr.get('t50_censored_pct', float('nan')):.1f}% "
-          f"(kỳ vọng ~100%)")
+          f"(expected ~0.10) | t50 censored = {rr.get('t50_censored_pct', float('nan')):.1f}% "
+          f"(expected ~100%)")
 
-    # ── 1. H1 — kiểm ĐỦ CẢ HAI VẾ (A8) ─────────────────────────────────────
-    print("\n[1] H1 (stationary): 'UCB ≈ TS' VÀ 'cả hai > ε-greedy'")
+    # ── 1. H1 - test BOTH clauses (A8) ─────────────────────────────────────
+    print("\n[1] H1 (stationary): 'UCB = TS' AND 'both > eps-greedy'")
     print(fmt_test('TS', 'UCB', paired_test(pi('stationary', 'ThompsonSampling'),
                                             pi('stationary', 'UCB'))))
     print(fmt_test('UCB', 'εG', paired_test(pi('stationary', 'UCB'),
@@ -81,8 +81,8 @@ def main():
     print(fmt_test('D-UCB', 'UCB', paired_test(pi('gradual_drift', 'D-UCB'),
                                                pi('gradual_drift', 'UCB'))))
 
-    # ── 3. H3 (abrupt): tốc độ thích nghi theo metric MỚI ──────────────────
-    print("\n[3] H3 (abrupt): thích nghi theo metric mới (opt_rate/t50)")
+    # ── 3. H3 (abrupt): adaptation speed under the NEW metric ──────────────────
+    print("\n[3] H3 (abrupt): adaptation under the new metric (opt_rate/t50)")
     hdr = f"    {'Method':22s} {'opt@100':>8} {'opt@500':>8} {'opt@1000':>9} {'t50 med [IQR]':>20} {'censored':>9}"
     print(hdr)
     for method in ['UCB', 'ThompsonSampling', 'SW-UCB', 'SW-UCB-Default',
@@ -94,20 +94,20 @@ def main():
         print(f"    {method:22s} {s['opt_rate_100_mean']:>8.3f} {s['opt_rate_500_mean']:>8.3f} "
               f"{s['opt_rate_1000_mean']:>9.3f} {s['t50_median']:>8.0f} "
               f"[{iqr[0]:.0f};{iqr[1]:.0f}]".ljust(14) + f" {s['t50_censored_pct']:>8.1f}%")
-    print("    (Đối chiếu legacy tau_adapt ở phụ lục — xem results_summary.json)")
+    print("    (Legacy tau_adapt kept in the appendix - see results_summary.json)")
 
     # ── 4. H4: MAB vs baselines, paired ─────────────────────────────────────
-    print("\n[4] H4: MAB vs baseline tốt nhất (theo từng kịch bản, paired n=5)")
+    print("\n[4] H4: MAB vs best baseline (per scenario, paired n=5)")
     for sc in SCENARIOS:
         best_bl = min(BASELINES, key=lambda b: m(sc, b))
-        print(f"  -- {sc} (baseline tốt nhất: {best_bl} = {m(sc, best_bl):.1f})")
+        print(f"  -- {sc} (best baseline: {best_bl} = {m(sc, best_bl):.1f})")
         for method in MAB:
             res = paired_test(pi(sc, method), pi(sc, best_bl))
             ratio = m(sc, best_bl) / m(sc, method)
-            print(fmt_test(method, best_bl, res) + f" | tỷ số {ratio:.1f}x")
+            print(fmt_test(method, best_bl, res) + f" | ratio {ratio:.1f}x")
 
-    # ── 5. Tuned vs Default — Bước 5 của protocol gốc ───────────────────────
-    print("\n[5] Tuned vs Default (câu 'giảm X%–Y%' lấy từ đây, KHÔNG gõ tay):")
+    # ── 5. Tuned vs Default - step 5 of the original protocol ───────────────────────
+    print("\n[5] Tuned vs Default (the 'reduced by X%-Y%' sentence comes from here, NOT typed by hand):")
     reductions = []
     for algo in TUNED:
         for sc in SCENARIOS:
@@ -119,19 +119,19 @@ def main():
             reductions.append(red)
             print(f"    {algo:18s} {sc:14s}: {b:8.2f} -> {a:8.2f}  ({red:+5.1f}%)")
     if reductions:
-        print(f"    => Câu đúng cho báo cáo: 'tuning thay đổi regret từ "
-              f"{min(reductions):+.0f}% đến {max(reductions):+.0f}%'")
+        print(f"    => Correct sentence for the paper: 'tuning changes regret by "
+              f"{min(reductions):+.0f}% to {max(reductions):+.0f}%'")
 
     # ── 6. Jensen (A7) ──────────────────────────────────────────────────────
-    print("\n[6] Xác minh Jensen (A7): gap lý thuyết = 1/(k-1) = 25.0% (k=5), hằng số theo arm")
+    print("\n[6] Jensen verification (A7): theoretical gap = 1/(k-1) = 25.0% (k=5), constant across arms")
     rng = np.random.default_rng(1)
     for theta in [4.0, 10.0, 19.0]:
         L = np.maximum(rng.gamma(5, theta, 1_000_000), 1.0)
         gap = (np.mean(1 / L) - 1 / np.mean(L)) / (1 / np.mean(L)) * 100
         print(f"    Monte Carlo theta={theta:5.1f}: gap = {gap:5.2f}%")
 
-    print("\nHOÀN TẤT. Tác giả đọc digest này và tự viết kết luận H1–H4 "
-          "TRƯỚC khi xem bản nháp báo cáo.")
+    print("\nDONE. Read this digest and write the H1-H4 conclusions "
+          "BEFORE looking at the report draft.")
 
 
 if __name__ == '__main__':

@@ -1,18 +1,18 @@
 """
-make_appendix_tables.py — sinh tự động 3 bảng Phụ lục (B.1–B.3) từ dữ liệu gốc,
-theo nguyên tắc A8 (mọi con số trong báo cáo sinh bằng script, không gõ tay).
+make_appendix_tables.py - generates the three appendix tables (B.1-B.3) from raw data,
+following rule A8: every number in the paper is script-generated, never typed by hand.
 
-Chạy từ gốc repo:  .venv/bin/python experiment/make_appendix_tables.py
+Run from the repository root:  python -m experiments.make_appendix_tables
 
 Ghi ra:
-  experiment/table_appendix_B1_per_instance.txt   — regret theo từng evaluation instance
-                                                    (bằng chứng thô cho tiêu chí "nhất quán 5/5")
-  experiment/table_appendix_B2_grid_scenario.txt  — grid search SW-UCB/D-UCB tách theo kịch bản
-                                                    (bằng chứng cho claim "đơn điệu kể cả riêng abrupt")
-  experiment/table_appendix_B3_sweep.txt          — số liệu đầy đủ của thí nghiệm quét dense_abrupt(P)
+  experiment/table_appendix_B1_per_instance.txt   - regret per evaluation instance
+                                                    (raw evidence for the "consistent on 5/5" criterion)
+  experiment/table_appendix_B2_grid_scenario.txt  - SW-UCB/D-UCB grid search split by scenario
+                                                    (evidence that the trend is monotone even within abrupt alone)
+  experiment/table_appendix_B3_sweep.txt          - full data from the dense_abrupt(P) sweep
 
-Số được in theo định dạng thập phân DẤU PHẨY để dán nguyên khối vào LaTeX — tránh
-bước chép tay từng ô vốn đã gây lỗi ở bảng 4.7 (xem lession/12-soat-xet-vong-2.md, mục A3).
+Numbers are printed ready to paste straight into LaTeX, avoiding the
+cell-by-cell transcription that caused an error in an earlier draft (see lessons/, pitfall 10).
 """
 import json
 
@@ -24,7 +24,7 @@ SCENARIOS = ['stationary', 'gradual_drift', 'abrupt_drift']
 SCENARIO_VN = {'stationary': 'Stationary', 'gradual_drift': 'Gradual Drift',
                'abrupt_drift': 'Abrupt Drift'}
 
-METHOD_LABELS = {  # thứ tự hiển thị = thứ tự khai báo
+METHOD_LABELS = {  # display order = declaration order
     'RoundRobin': 'Round Robin',
     'LeastConnections': 'Least Connections',
     'EpsilonGreedy': r'$\epsilon$-greedy (tuned, $c=2$)',
@@ -49,22 +49,22 @@ SWEEP_LABELS = {
 
 
 def fmt(x, nd=1):
-    """Định dạng số kiểu Việt Nam (dấu phẩy thập phân)."""
-    return f'{x:.{nd}f}'.replace('.', ',')
+    """Format a number for direct LaTeX inclusion."""
+    return f'{x:.{nd}f}'
 
 
 def make_b1(summary):
     lines = [
         r'\begin{table}[htbp]', r'\centering', r'\small',
         r'\setlength{\tabcolsep}{5pt}',
-        r'\caption{Hối tiếc động cuối kỳ theo \emph{từng} evaluation instance (I1--I5; mỗi ô là'
-        r' trung bình của 30 run trên instance đó). Đây là 5 đơn vị độc lập ($n=5$) dùng cho mọi'
-        r' kiểm định theo cặp tại Mục~\ref{subsec:monte_carlo_estimation}; người đọc có thể tự'
-        " kiểm tra tiêu chí ``nhất quán 5/5 instance'' bằng cách so dấu hiệu giữa hai dòng bất kỳ"
-        r' theo từng cột. Cột TB là trung bình 5 instance.}',
+        r'\caption{Final dynamic regret per \emph{individual} evaluation instance (I1--I5; each cell is'
+        r' the mean of 30 runs on that instance). These are the 5 independent units ($n=5$) used for every'
+        r' paired test; the reader can verify the'
+        " ``consistent on 5/5 instances'' criterion by comparing the sign between any two rows"
+        r' column by column. The Mean column averages the 5 instances.}',
         r'\label{app:tab_per_instance}',
         r'\begin{tabular}{lrrrrrr}', r'\toprule',
-        r'\textbf{Phương pháp} & \textbf{I1} & \textbf{I2} & \textbf{I3} & \textbf{I4} & \textbf{I5} & \textbf{TB} \\',
+        r'\textbf{Method} & \textbf{I1} & \textbf{I2} & \textbf{I3} & \textbf{I4} & \textbf{I5} & \textbf{Mean} \\',
     ]
     for scn in SCENARIOS:
         lines.append(r'\midrule')
@@ -85,10 +85,10 @@ def make_b2(params):
     lines = [
         r'\begin{table}[htbp]', r'\centering', r'\small',
         r'\setlength{\tabcolsep}{3.5pt}',
-        r'\caption{Grid search của SW-UCB và D-UCB tách theo từng kịch bản (regret trung bình'
-        r' trên tuning instances). Xu hướng đơn điệu về phía điểm neo giữ nguyên ở \emph{từng}'
-        r' kịch bản riêng lẻ --- kể cả abrupt drift --- chứ không phải hệ quả của phép lấy trung'
-        r' bình (Mục~\ref{sec:sensitivity_analysis}). In đậm: điểm tối ưu (điểm neo UCB).}',
+        r'\caption{SW-UCB and D-UCB grid search split by scenario (mean regret'
+        r' over the tuning instances). The monotone trend toward the anchor point holds within \emph{each}'
+        r' individual scenario --- including abrupt drift --- so it is not an artefact of'
+        r' averaging. Bold: the optimum (the UCB anchor point).}',
         r'\label{app:tab_grid_scenario}',
         r'\begin{tabular}{r rrrr @{\hspace{14pt}} r rrrr}', r'\toprule',
         r'\multicolumn{5}{c}{\textbf{SW-UCB ($\tau$)}} & \multicolumn{5}{c}{\textbf{D-UCB ($\gamma$)}} \\',
@@ -104,7 +104,7 @@ def make_b2(params):
                f'{fmt(sp["abrupt_drift"])} & {fmt(sv["objective_mean_regret"])} & '
                f'{gam_disp} & {fmt(dp["stationary"])} & {fmt(dp["gradual_drift"])} & '
                f'{fmt(dp["abrupt_drift"])} & {fmt(dv["objective_mean_regret"])}')
-        if float(tau) == 10000:  # hàng chứa cả hai điểm neo
+        if float(tau) == 10000:  # row containing both anchor points
             row = ' & '.join(r'\textbf{' + c.strip() + '}' for c in row.split('&'))
         lines.append(row + r' \\')
     lines += [r'\bottomrule', r'\end{tabular}', r'\end{table}']
@@ -116,13 +116,13 @@ def make_b3(sweep):
     lines = [
         r'\begin{table}[htbp]', r'\centering', r'\small',
         r'\setlength{\tabcolsep}{3pt}',
-        r'\caption{Số liệu đầy đủ của thí nghiệm quét tần suất drift (Mục'
-        r'~\ref{subsec:drift_frequency_sweep}): hối tiếc động cuối kỳ (trung bình $\pm$ độ lệch'
-        r' chuẩn, $N=150$ quỹ đạo) theo độ dài pha ổn định $P$. Cột $P=5000$ trùng kịch bản'
-        r' abrupt chính theo thiết kế (cùng họ sinh môi trường và cùng seed).}',
+        r'\caption{Full data from the drift-frequency sweep'
+        r': final dynamic regret (mean $\pm$ standard'
+        r' deviation, $N=150$ trajectories) against stable-phase length $P$. The $P=5000$ column coincides with the'
+        r' main abrupt scenario by design (same environment family and seeds).}',
         r'\label{app:tab_sweep}',
         r'\begin{tabular}{l' + 'c' * len(periods) + '}', r'\toprule',
-        r'\textbf{Phương pháp} & ' +
+        r'\textbf{Method} & ' +
         ' & '.join(r'$P{=}' + p + '$' for p in periods) + r' \\',
         r'\midrule',
     ]

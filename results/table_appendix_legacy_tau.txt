@@ -1,11 +1,11 @@
 \begin{table}[htbp]
 \centering
 \small
-\caption{[Phụ lục] Metric tốc độ thích nghi CŨ $\tau_{\text{adapt}}$ (ngưỡng tự quy chiếu $\eta = 1{.}1\rho_{\min}$) — chỉ giữ để đối chiếu minh bạch. Metric này bị thay thế vì thưởng cho policy có regret nền cao: Round Robin ``thích nghi'' trong $\approx 2$ vòng dù không học gì.}
+\caption{[Appendix] The OLD adaptation metric $\tau_{\text{adapt}}$ (self-referential threshold $\eta = 1{.}1\rho_{\min}$), kept only for transparency. It was replaced because it rewards policies with high baseline regret: Round Robin ``adapts'' in $\approx 2$ rounds while learning nothing.}
 \label{tab:legacy_tau_adapt}
 \begin{tabular}{lc}
 \toprule
-\textbf{Thuật toán} & \textbf{$\tau_{\text{adapt}}$ cũ (mean $\pm$ std)} \\ \midrule
+\textbf{Algorithm} & \textbf{old $\tau_{\text{adapt}}$ (mean $\pm$ std)} \\ \midrule
 Round Robin & 1.9 $\pm$ 11.4 \\
 Least Connections & 3.4 $\pm$ 12.1 \\
 $\epsilon$-greedy (tuned, $c=2$) & 1344.4 $\pm$ 1081.0 \\

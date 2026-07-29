@@ -2,7 +2,7 @@
 \centering
 \small
 \setlength{\tabcolsep}{3.5pt}
-\caption{Grid search của SW-UCB và D-UCB tách theo từng kịch bản (regret trung bình trên tuning instances). Xu hướng đơn điệu về phía điểm neo giữ nguyên ở \emph{từng} kịch bản riêng lẻ --- kể cả abrupt drift --- chứ không phải hệ quả của phép lấy trung bình (Mục~\ref{sec:sensitivity_analysis}). In đậm: điểm tối ưu (điểm neo UCB).}
+\caption{SW-UCB and D-UCB grid search split by scenario (mean regret over the tuning instances). The monotone trend toward the anchor point holds within \emph{each} individual scenario --- including abrupt drift --- so it is not an artefact of averaging. Bold: the optimum (the UCB anchor point).}
 \label{app:tab_grid_scenario}
 \begin{tabular}{r rrrr @{\hspace{14pt}} r rrrr}
 \toprule
@@ -10,14 +10,14 @@
 \cmidrule(r{14pt}){1-5} \cmidrule{6-10}
 $\tau$ & Stat. & Grad. & Abr. & TB & $\gamma$ & Stat. & Grad. & Abr. & TB \\
 \midrule
-50 & 333,4 & 329,2 & 313,4 & 325,3 & 0,9 & 366,4 & 372,4 & 341,8 & 360,2 \\
-100 & 318,9 & 306,2 & 299,8 & 308,3 & 0,95 & 357,8 & 361,9 & 334,8 & 351,5 \\
-200 & 298,2 & 277,8 & 279,2 & 285,0 & 0,99 & 334,8 & 329,1 & 314,6 & 326,2 \\
-500 & 260,7 & 231,1 & 241,2 & 244,3 & 0,995 & 320,2 & 308,3 & 300,6 & 309,7 \\
-1000 & 224,2 & 190,1 & 203,0 & 205,7 & 0,999 & 266,7 & 235,9 & 244,9 & 249,2 \\
-2000 & 182,1 & 148,7 & 157,9 & 162,9 & 0,9995 & 234,7 & 193,8 & 208,7 & 212,4 \\
-5000 & 126,6 & 94,9 & 106,4 & 109,3 & 0,9999 & 165,4 & 117,4 & 141,4 & 141,4 \\
-\textbf{10000} & \textbf{91,4} & \textbf{61,9} & \textbf{74,2} & \textbf{75,8} & \textbf{1,0} & \textbf{130,9} & \textbf{82,8} & \textbf{110,8} & \textbf{108,2} \\
+50 & 333.4 & 329.2 & 313.4 & 325.3 & 0.9 & 366.4 & 372.4 & 341.8 & 360.2 \\
+100 & 318.9 & 306.2 & 299.8 & 308.3 & 0.95 & 357.8 & 361.9 & 334.8 & 351.5 \\
+200 & 298.2 & 277.8 & 279.2 & 285.0 & 0.99 & 334.8 & 329.1 & 314.6 & 326.2 \\
+500 & 260.7 & 231.1 & 241.2 & 244.3 & 0.995 & 320.2 & 308.3 & 300.6 & 309.7 \\
+1000 & 224.2 & 190.1 & 203.0 & 205.7 & 0.999 & 266.7 & 235.9 & 244.9 & 249.2 \\
+2000 & 182.1 & 148.7 & 157.9 & 162.9 & 0.9995 & 234.7 & 193.8 & 208.7 & 212.4 \\
+5000 & 126.6 & 94.9 & 106.4 & 109.3 & 0.9999 & 165.4 & 117.4 & 141.4 & 141.4 \\
+\textbf{10000} & \textbf{91.4} & \textbf{61.9} & \textbf{74.2} & \textbf{75.8} & \textbf{1,0} & \textbf{130.9} & \textbf{82.8} & \textbf{110.8} & \textbf{108.2} \\
 \bottomrule
 \end{tabular}
 \end{table}

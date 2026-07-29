@@ -165,11 +165,11 @@ def generate_plots_and_tables():
     s = r"""\begin{table}[htbp]
 \centering
 \small
-\caption{Final cumulative dynamic regret ($T = 10.000$), mean $\pm$ std trên $N=150$ quỹ đạo (5 instance $\times$ 30 lần chạy). $^{\dagger}$Giá trị tuning tối ưu của SW-UCB và D-UCB rơi đúng điểm neo UCB ($\tau = T$, $\gamma = 1$), nên hai cấu hình này suy biến về UCB (Mục~\ref{sec:sensitivity_analysis}).}
+\caption{Final cumulative dynamic regret ($T = 10.000$), mean $\pm$ std over $N=150$ trajectories (5 instances $\times$ 30 runs). $^{\dagger}$The optimal tuned values for SW-UCB and D-UCB land exactly on the UCB anchor ($\tau = T$, $\gamma = 1$), so both configurations degenerate to UCB.}
 \label{tab:regret_comparison_final}
 \begin{tabular}{lccc}
 \toprule
-\textbf{Thuật toán} & \textbf{Stationary} & \textbf{Gradual Drift} & \textbf{Abrupt Drift} \\ \midrule
+\textbf{Algorithm} & \textbf{Stationary} & \textbf{Gradual Drift} & \textbf{Abrupt Drift} \\ \midrule
 """
     for i, method in enumerate(order):
         row = tex_names[method]
@@ -188,11 +188,11 @@ def generate_plots_and_tables():
 \centering
 \small
 \setlength{\tabcolsep}{4pt}
-\caption{Chỉ số thích nghi sau breakpoint ($t_b = 5000$, kịch bản Abrupt Drift) theo metric neo ground-truth: tỷ lệ chọn đúng arm tối ưu mới $\text{opt}(W)$ và thời gian đạt đa số $t_{50}$ (median [IQR]; run không bao giờ đạt được tính censored tại giá trị tối đa). Round Robin đóng vai trò đối chứng: $\text{opt}(W) \approx 1/K = 0{.}10$.}
+\caption{Post-breakpoint adaptation ($t_b = 5000$, abrupt-drift scenario) under the ground-truth-anchored metric: share of rounds on the new optimal arm $\text{opt}(W)$, and time to majority $t_{50}$ (median [IQR]; runs that never reach it are censored at the maximum). Round Robin is the control: $\text{opt}(W) \approx 1/K = 0{.}10$.}
 \label{tab:adaptation_speed}
 \begin{tabular}{lccccc}
 \toprule
-\textbf{Thuật toán} & \textbf{opt(100)} & \textbf{opt(500)} & \textbf{opt(1000)} & \textbf{$t_{50}$ median [IQR]} & \textbf{\% censored} \\ \midrule
+\textbf{Algorithm} & \textbf{opt(100)} & \textbf{opt(500)} & \textbf{opt(1000)} & \textbf{$t_{50}$ median [IQR]} & \textbf{\% censored} \\ \midrule
 """
     for method in ['UCB', 'ThompsonSampling', 'EpsilonGreedy',
                    'SW-UCB-Default', 'D-UCB-Default', 'D-UCB',
@@ -212,11 +212,11 @@ def generate_plots_and_tables():
     s = r"""\begin{table}[htbp]
 \centering
 \small
-\caption{So sánh Final cumulative dynamic regret giữa cấu hình Mặc định và cấu hình Tuning (Amendment A4: 4 thuật toán, cùng ngân sách 8 điểm lưới).}
+\caption{Final cumulative dynamic regret, default configuration versus tuned configuration (Amendment A4: 4 algorithms, an equal budget of 8 grid points each).}
 \label{tab:tuning_comparison}
 \begin{tabular}{llccc}
 \toprule
-\textbf{Thuật toán} & \textbf{Cấu hình} & \textbf{Stationary} & \textbf{Gradual Drift} & \textbf{Abrupt Drift} \\ \midrule
+\textbf{Algorithm} & \textbf{Configuration} & \textbf{Stationary} & \textbf{Gradual Drift} & \textbf{Abrupt Drift} \\ \midrule
 """
     pairs = [('EpsilonGreedy', r'$\epsilon$-greedy', '$c=0{.}1$', '$c=2$'),
              ('ThompsonSampling', 'TS', r'$\sigma_0=1$', r'$\sigma_0=0{.}25$'),
@@ -247,12 +247,12 @@ def generate_plots_and_tables():
 \centering
 \small
 \setlength{\tabcolsep}{4pt}
-\caption{Kết quả Grid Search (Amendment A4): regret trung bình trên 3 kịch bản chính $\times$ 5 tuning instances $\times$ 30 runs. Điểm in đậm là tối ưu. Hai điểm cuối lưới của SW-UCB ($\tau = T$) và D-UCB ($\gamma = 1$) là điểm neo suy biến về UCB.}
+\caption{Grid search results (Amendment A4): mean regret over the 3 main scenarios $\times$ 5 tuning instances $\times$ 30 runs. Bold marks the optimum. The final grid points of SW-UCB ($\tau = T$) and D-UCB ($\gamma = 1$) are the anchors that degenerate to UCB.}
 \label{tab:hyperparam_sensitivity}
 \begin{tabular}{cc|cc|cc|cc}
 \toprule
 \multicolumn{2}{c|}{\textbf{$\epsilon$-greedy ($c$)}} & \multicolumn{2}{c|}{\textbf{TS ($\sigma_0$)}} & \multicolumn{2}{c|}{\textbf{SW-UCB ($\tau$)}} & \multicolumn{2}{c}{\textbf{D-UCB ($\gamma$)}} \\
-Giá trị & Regret & Giá trị & Regret & Giá trị & Regret & Giá trị & Regret \\ \midrule
+Value & Regret & Value & Regret & Value & Regret & Value & Regret \\ \midrule
 """
     cols = []
     for key, _ in algo_meta:
@@ -276,11 +276,11 @@ Giá trị & Regret & Giá trị & Regret & Giá trị & Regret & Giá trị & R
     s = r"""\begin{table}[htbp]
 \centering
 \small
-\caption{[Phụ lục] Metric tốc độ thích nghi CŨ $\tau_{\text{adapt}}$ (ngưỡng tự quy chiếu $\eta = 1{.}1\rho_{\min}$) — chỉ giữ để đối chiếu minh bạch. Metric này bị thay thế vì thưởng cho policy có regret nền cao: Round Robin ``thích nghi'' trong $\approx 2$ vòng dù không học gì.}
+\caption{[Appendix] The OLD adaptation metric $\tau_{\text{adapt}}$ (self-referential threshold $\eta = 1{.}1\rho_{\min}$), kept only for transparency. It was replaced because it rewards policies with high baseline regret: Round Robin ``adapts'' in $\approx 2$ rounds while learning nothing.}
 \label{tab:legacy_tau_adapt}
 \begin{tabular}{lc}
 \toprule
-\textbf{Thuật toán} & \textbf{$\tau_{\text{adapt}}$ cũ (mean $\pm$ std)} \\ \midrule
+\textbf{Algorithm} & \textbf{old $\tau_{\text{adapt}}$ (mean $\pm$ std)} \\ \midrule
 """
     for method in order:
         d = results['abrupt_drift'][method]

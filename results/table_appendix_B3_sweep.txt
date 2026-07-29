@@ -2,18 +2,18 @@
 \centering
 \small
 \setlength{\tabcolsep}{3pt}
-\caption{Số liệu đầy đủ của thí nghiệm quét tần suất drift (Mục~\ref{subsec:drift_frequency_sweep}): hối tiếc động cuối kỳ (trung bình $\pm$ độ lệch chuẩn, $N=150$ quỹ đạo) theo độ dài pha ổn định $P$. Cột $P=5000$ trùng kịch bản abrupt chính theo thiết kế (cùng họ sinh môi trường và cùng seed).}
+\caption{Full data from the drift-frequency sweep: final dynamic regret (mean $\pm$ standard deviation, $N=150$ trajectories) against stable-phase length $P$. The $P=5000$ column coincides with the main abrupt scenario by design (same environment family and seeds).}
 \label{app:tab_sweep}
 \begin{tabular}{lccccc}
 \toprule
-\textbf{Phương pháp} & $P{=}250$ & $P{=}500$ & $P{=}1000$ & $P{=}2500$ & $P{=}5000$ \\
+\textbf{Method} & $P{=}250$ & $P{=}500$ & $P{=}1000$ & $P{=}2500$ & $P{=}5000$ \\
 \midrule
-UCB ($\equiv$ SW-UCB tuned) & 139,3 $\pm$ 10,3 & 141,8 $\pm$ 14,9 & 124,7 $\pm$ 13,5 & 109,8 $\pm$ 33,1 & 88,0 $\pm$ 32,6 \\
-TS (tuned, $\sigma_0=0{,}25$) & 236,6 $\pm$ 19,1 & 218,0 $\pm$ 24,3 & 186,8 $\pm$ 34,0 & 112,4 $\pm$ 32,9 & 50,6 $\pm$ 26,2 \\
-TS (default, $\sigma_0=1$) & 281,2 $\pm$ 17,3 & 270,2 $\pm$ 25,4 & 248,4 $\pm$ 31,9 & 162,4 $\pm$ 44,6 & 102,8 $\pm$ 42,9 \\
-SW-UCB (default, $\tau=200$) & 251,2 $\pm$ 13,2 & 259,0 $\pm$ 17,5 & 267,8 $\pm$ 29,1 & 260,9 $\pm$ 57,5 & 243,7 $\pm$ 88,4 \\
-D-UCB (tuned, $\gamma=1{,}0$) & 157,3 $\pm$ 13,2 & 162,3 $\pm$ 15,9 & 156,0 $\pm$ 17,7 & 137,3 $\pm$ 44,1 & 122,1 $\pm$ 41,4 \\
-D-UCB (default, $\gamma=0{,}99$) & 278,2 $\pm$ 14,4 & 286,6 $\pm$ 19,3 & 297,3 $\pm$ 32,2 & 289,6 $\pm$ 63,7 & 269,7 $\pm$ 100,7 \\
+UCB ($\equiv$ SW-UCB tuned) & 139.3 $\pm$ 10.3 & 141.8 $\pm$ 14.9 & 124.7 $\pm$ 13.5 & 109.8 $\pm$ 33.1 & 88.0 $\pm$ 32.6 \\
+TS (tuned, $\sigma_0=0{.}25$) & 236.6 $\pm$ 19.1 & 218.0 $\pm$ 24.3 & 186.8 $\pm$ 34.0 & 112.4 $\pm$ 32.9 & 50.6 $\pm$ 26.2 \\
+TS (default, $\sigma_0=1$) & 281.2 $\pm$ 17.3 & 270.2 $\pm$ 25.4 & 248.4 $\pm$ 31.9 & 162.4 $\pm$ 44.6 & 102.8 $\pm$ 42.9 \\
+SW-UCB (default, $\tau=200$) & 251.2 $\pm$ 13.2 & 259.0 $\pm$ 17.5 & 267.8 $\pm$ 29.1 & 260.9 $\pm$ 57.5 & 243.7 $\pm$ 88.4 \\
+D-UCB (tuned, $\gamma=1{.}0$) & 157.3 $\pm$ 13.2 & 162.3 $\pm$ 15.9 & 156.0 $\pm$ 17.7 & 137.3 $\pm$ 44.1 & 122.1 $\pm$ 41.4 \\
+D-UCB (default, $\gamma=0{.}99$) & 278.2 $\pm$ 14.4 & 286.6 $\pm$ 19.3 & 297.3 $\pm$ 32.2 & 289.6 $\pm$ 63.7 & 269.7 $\pm$ 100.7 \\
 \bottomrule
 \end{tabular}
 \end{table}

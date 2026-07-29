@@ -2,11 +2,11 @@
 \centering
 \small
 \setlength{\tabcolsep}{4pt}
-\caption{Chỉ số thích nghi sau breakpoint ($t_b = 5000$, kịch bản Abrupt Drift) theo metric neo ground-truth: tỷ lệ chọn đúng arm tối ưu mới $\text{opt}(W)$ và thời gian đạt đa số $t_{50}$ (median [IQR]; run không bao giờ đạt được tính censored tại giá trị tối đa). Round Robin đóng vai trò đối chứng: $\text{opt}(W) \approx 1/K = 0{.}10$.}
+\caption{Post-breakpoint adaptation ($t_b = 5000$, abrupt-drift scenario) under the ground-truth-anchored metric: share of rounds on the new optimal arm $\text{opt}(W)$, and time to majority $t_{50}$ (median [IQR]; runs that never reach it are censored at the maximum). Round Robin is the control: $\text{opt}(W) \approx 1/K = 0{.}10$.}
 \label{tab:adaptation_speed}
 \begin{tabular}{lccccc}
 \toprule
-\textbf{Thuật toán} & \textbf{opt(100)} & \textbf{opt(500)} & \textbf{opt(1000)} & \textbf{$t_{50}$ median [IQR]} & \textbf{\% censored} \\ \midrule
+\textbf{Algorithm} & \textbf{opt(100)} & \textbf{opt(500)} & \textbf{opt(1000)} & \textbf{$t_{50}$ median [IQR]} & \textbf{\% censored} \\ \midrule
 UCB & 0.543 & 0.632 & 0.634 & 0 [0; 1014] & 0.0\% \\
 TS (tuned, $\sigma_0=0{.}25$) & 0.019 & 0.075 & 0.186 & 1288 [591; 2608] & 16.7\% \\
 $\epsilon$-greedy (tuned, $c=2$) & 0.038 & 0.105 & 0.149 & 4900 [1073; 4900] & 51.3\% \\

@@ -1,11 +1,11 @@
 \begin{table}[htbp]
 \centering
 \small
-\caption{Final cumulative dynamic regret ($T = 10.000$), mean $\pm$ std trên $N=150$ quỹ đạo (5 instance $\times$ 30 lần chạy). $^{\dagger}$Giá trị tuning tối ưu của SW-UCB và D-UCB rơi đúng điểm neo UCB ($\tau = T$, $\gamma = 1$), nên hai cấu hình này suy biến về UCB (Mục~\ref{sec:sensitivity_analysis}).}
+\caption{Final cumulative dynamic regret ($T = 10.000$), mean $\pm$ std over $N=150$ trajectories (5 instances $\times$ 30 runs). $^{\dagger}$The optimal tuned values for SW-UCB and D-UCB land exactly on the UCB anchor ($\tau = T$, $\gamma = 1$), so both configurations degenerate to UCB.}
 \label{tab:regret_comparison_final}
 \begin{tabular}{lccc}
 \toprule
-\textbf{Thuật toán} & \textbf{Stationary} & \textbf{Gradual Drift} & \textbf{Abrupt Drift} \\ \midrule
+\textbf{Algorithm} & \textbf{Stationary} & \textbf{Gradual Drift} & \textbf{Abrupt Drift} \\ \midrule
 Round Robin & 400.08 $\pm$ 222.31 & 746.41 $\pm$ 331.81 & 296.48 $\pm$ 112.56 \\
 Least Connections & 357.21 $\pm$ 199.55 & 657.74 $\pm$ 299.48 & 263.58 $\pm$ 98.40 \\
 \addlinespace
