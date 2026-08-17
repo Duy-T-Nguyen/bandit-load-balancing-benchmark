@@ -81,7 +81,7 @@ cost rises — are the natural place to look for a reversal.
 
 Every bandit policy beat Least Connections on **5/5 evaluation instances across all three
 scenarios** (paired *t*-test `p ≤ 0.038` on every comparison). Regret improvement ranged
-2.2×–48×, median 8.1×. On the underlying physical quantity:
+2.2×–48×, median 5.2×. On the underlying physical quantity:
 
 | Policy | Stationary | Gradual drift | Abrupt drift |
 |---|---|---|---|
@@ -93,7 +93,10 @@ scenarios** (paired *t*-test `p ≤ 0.038` on every comparison). Regret improvem
 *Mean system latency; parenthesis = speedup over Least Connections.*
 
 One caveat worth keeping: this advantage is **conditional on tuning**. At default settings,
-D-UCB is statistically indistinguishable from Least Connections.
+D-UCB is *practically* indistinguishable from Least Connections — the gap is a few percent
+either way (365.93 vs 357.21 stationary, 631.85 vs 657.74 gradual, 269.65 vs 263.58 abrupt).
+It is not *statistically* indistinguishable: the differences are small but consistent in sign
+across instances, so the paired test picks them up (`p = 0.0087`, `0.0088`, `0.0367`).
 
 ---
 
@@ -101,7 +104,7 @@ D-UCB is statistically indistinguishable from Least Connections.
 
 | | Hypothesis | Outcome |
 |---|---|---|
-| **H1** | UCB ≈ TS, and both > ε-greedy | ❌ **Rejected on both clauses** — TS beats UCB consistently (5/5 instances, paired *t* `p = 0.007`); tuned ε-greedy matches or beats UCB |
+| **H1** | UCB ≈ TS, and both > ε-greedy | ❌ **Rejected on both clauses** — TS beats UCB on stationary (5/5 instances, paired *t* `p = 0.007`) and abrupt drift (5/5, `p = 0.007`), though not on gradual drift (4/5, `p = 0.21`); tuned ε-greedy matches or beats UCB |
 | **H2** | D-UCB adapts better than UCB under gradual drift | ❌ **Contradicted** — D-UCB worse on 5/5 instances even at its own optimal setting |
 | **H3** | SW-UCB adapts faster than D-UCB after a breakpoint | ⚠️ **No longer well-posed** — both tune to their no-forgetting limits, so there is no forgetting mechanism left to compare |
 | **H4** | MAB policies beat static allocation | ✅ **Confirmed** |
@@ -152,16 +155,21 @@ from the raw results. None was typed by hand.
 
 ---
 
-## ⭐ `lessons/` — eleven pitfalls found by auditing this benchmark
+## ⭐ `lessons/` — twelve pitfalls found by auditing this benchmark
 
 The most reusable part of this repository is not the results. It is
-**[`lessons/`](lessons/README.md)**: a catalogue of eleven ways an empirical bandit study can
-produce a plausible but wrong conclusion, each one found in *this* work before publication.
+**[`lessons/`](lessons/README.md)**: a catalogue of twelve ways an empirical bandit study can
+produce a plausible but wrong conclusion, each one found in *this* work.
 
 Among them: a self-referential adaptation metric that ranked Round Robin as the fastest
 adapter; a grid-search optimum sitting on the grid boundary; `N = 150` that was really `N = 5`;
 a verification figure that contradicted its own closed form; and a constant used in a
 derivation that turned out to be off by a factor of four.
+
+The twelfth was found four weeks after the first eleven were published, **in this README** —
+three hand-typed summary numbers that did not survive being recomputed, which is a repeat of
+pitfall #10 in the one document the fix for #10 did not cover. They are corrected above; the
+entry explaining how they got there is [in the catalogue](lessons/README.md#12-the-catalogue-did-not-stop-pitfall-10-from-happening-again).
 
 ---
 
@@ -195,7 +203,7 @@ src/            env · policies · simulator · metrics
 experiments/    tuning, runs, sweeps, plotting, table generation
 results/        aggregated JSON + rendered result tables
 figures/        figures used in the report
-lessons/        ⭐ eleven pitfalls, with evidence
+lessons/        ⭐ twelve pitfalls, with evidence
 report/         full report (PDF, Vietnamese, 56 pp.)
 ```
 

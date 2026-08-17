@@ -1,4 +1,4 @@
-# Eleven pitfalls in empirical multi-armed bandit evaluation
+# Twelve pitfalls in empirical multi-armed bandit evaluation
 
 *Found by auditing my own experiments, not someone else's.*
 
@@ -8,8 +8,15 @@ it. I am publishing it because none of these traps are specific to me — every 
 easy to fall into, and most of them fail **silently**: the experiment still runs, the numbers
 still look reasonable, and the paper still reads well.
 
-The audit was run on 2026-07-17 against `src/`, the raw results, and the report draft. Every
-number quoted below is reproducible from the committed code.
+Pitfalls 1–11 came from an audit run on 2026-07-17 against `src/`, the raw results, and the
+report draft. **Pitfall 12 was found on 2026-08-17, in this repository's own `README.md`,
+four weeks after the rest of this list was published** — it is a repeat of #10, and it is the
+reason the list is not closed. Every number quoted below is reproducible from the committed
+code.
+
+Two of the tables below (#1, #3) quote values as the audit measured them at the time, against
+the draft pipeline. Where the final committed results differ, the current numbers are noted
+inline — the conclusions are unchanged, and in #1 the current data is the stronger case.
 
 ---
 
@@ -38,6 +45,13 @@ anything, by construction:
 Spearman correlation between τ_adapt and baseline regret across 9 methods: **ρ = −0.867,
 p = 0.0025**. The metric was measuring how lenient each policy's own threshold was, not how
 fast it adapted. A conclusion built on it had to be withdrawn entirely.
+
+*Current committed data (the legacy metric is retained in `results_summary.json` as
+`legacy_tau_adapt_mean` precisely so this stays checkable): the effect reproduces at
+**ρ = −0.836, p = 0.0014** across all 11 policy configurations, and across the 7 tuned
+configurations alone it is **ρ = −1.000** — a perfect rank inversion. On the set of policies
+anyone would actually compare, the "adaptation speed" metric ranked them in exactly reverse
+order of how well they performed.*
 
 > **Rule.** Before trusting a metric, run it on an algorithm that *cannot possibly* have the
 > property you are measuring. If that algorithm scores well, the metric is broken — not the
@@ -85,6 +99,11 @@ stationary algorithm as possible. That is a finding — but only if you say it o
 > **Rule.** Optimum at the boundary + monotone trend = the grid is wrong, not the result. And
 > when tuning "wants" to turn algorithm A into algorithm B, ask whether the benchmark is
 > telling you A is unnecessary here.
+
+*What happened after: the grid was extended to 8 points per algorithm (`results/table_4_7.txt`),
+and the optimum kept moving outward until it reached the only place it could stop — `τ = 10000`
+(= T) and `γ = 1.0`, the degenerate limits themselves. There is nothing past that boundary to
+extend into: a window longer than the horizon is the horizon.*
 
 ---
 
@@ -216,6 +235,13 @@ benchmark: a design decision made in response to results on the same data used t
 > **Rule.** Any constant derived from the evaluation environment is oracle information until
 > proven otherwise. Ask of every preprocessing step: *could I compute this before deployment?*
 
+*Fixed in the committed pipeline: `simulator.py` now normalises from each policy's own observed
+history — running min/max for the first 100 rounds, then 1st/99th percentiles of its own
+observations recomputed every 500 rounds — and the hard-coded `r_min = 0.005`, `r_max = 0.150`
+constants are gone. The residual asymmetry is not fixed and is not fixable this way: the bandits
+still carry a scale-estimation mechanism that Round Robin and Least Connections do not need, and
+its cost is not charged to them anywhere in the results.*
+
 ---
 
 ## 9. Half of a two-part hypothesis quietly disappeared
@@ -298,7 +324,43 @@ Measured properly: **0.0823**, which solves to **τ ≈ 30,481** — larger than
 
 ---
 
-## Three meta-lessons
+## 12. The catalogue did not stop pitfall #10 from happening again
+
+**Found 2026-08-17**, four weeks after this list was published, while re-deriving every number
+in the top-level `README.md` for a write-up rather than trusting it. Three of its summary
+sentences did not survive the check — all three the same failure as #10, in the one document
+written *after* the fix for #10 was already in place.
+
+| Claim in `README.md` | Recomputed from `results/` |
+|---|---|
+| regret improvement "median 8.1×" | **median 5.2×** — 8.10× is the value of a single cell (D-UCB, gradual drift), relabelled as an aggregate |
+| "TS beats UCB consistently, `p = 0.007`" | holds on stationary (5/5, `p = 0.0067`) and abrupt drift (5/5, `p = 0.0066`); **fails on gradual drift** (4/5, `p = 0.206`) |
+| default D-UCB "statistically indistinguishable" from Least Connections | distinguishable in all three scenarios (`p = 0.0087`, `0.0088`, `0.0367`) — small differences, but consistent in sign across instances, which is exactly what a paired test detects. The right word is ***practically*** indistinguishable |
+
+No underlying result changed; the corrected numbers argue the same direction. What changed is
+what I now think #10's fix actually accomplished.
+
+The fix for #10 was `make_summary_numbers.py`, and it worked — no summary number in the
+*report* was typed by hand after it existed. But the fix was scoped to the artefact where the
+bug was found, not to the failure mode. `README.md` is a different published surface, written
+by hand, outside that pipeline, and the same failure walked straight back in through the one
+door nobody had thought to cover. A catalogue of your own mistakes is not a vaccine; it
+documents where you have already been careless, which is not the same as where you will be
+careless next.
+
+The three claims above are also, individually, the most persuasive sentences in the document —
+the headline ratio, the significance claim, the honest-sounding caveat. That is not a
+coincidence. Summary prose is where a number is doing the most rhetorical work and receiving
+the least scrutiny, because by then the author is describing something they already believe.
+
+> **Rule.** When you fix a "no number without a source" bug, fix it for **every** surface that
+> publishes numbers — report, README, slides, abstract — not just the one that was caught. And
+> re-derive, rather than re-read, when quoting your own prior work: reading your own summary
+> checks whether you remember it, not whether it is true.
+
+---
+
+## Four meta-lessons
 
 **1. Test every metric against an absurd control group.** Pitfall #1 was invisible for weeks
 and became obvious in one line the moment Round Robin was included in the table.
@@ -308,6 +370,11 @@ failure in three costumes — a number that entered the prose without a source.
 
 **3. Write the methods section *after* the method is frozen, from a single source of truth.**
 Pitfall #2 exists purely because prose was written ahead of a decision and never revisited.
+
+**4. Fix the failure mode, not the artefact it was found in.** Pitfall #12 is #10 walking back
+in through a document the fix for #10 did not cover. Every fix above should be read as a
+question — *what else does this apply to that I have not checked yet?* — rather than as a
+line item that has been closed.
 
 ---
 
@@ -319,3 +386,7 @@ only confirm its author's expectations is not measuring anything.
 
 The same applies to this list. An audit you run on yourself and then hide is a rehearsal; one
 you publish is a result.
+
+And the list stays open. Pitfall #12 was added four weeks after the first eleven, and it is a
+repeat of one of them — which is the most useful thing this document has done so far, because
+a catalogue that stopped growing would only mean I had stopped re-deriving my own numbers.
